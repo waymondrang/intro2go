@@ -27,7 +27,8 @@ func printPathHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	var addr = os.Getenv("ADDR") // type-inferred
+	var addr = os.Getenv("PORT")
+	// type-inferred, use PORT env variable
 
 	if len(addr) == 0 {
 		addr = ":3000"
