@@ -31,7 +31,7 @@ func main() {
 	// type-inferred, use PORT env variable
 
 	if len(addr) == 0 {
-		addr = ":3000"
+		addr = "3000"
 	}
 
 	var mux = http.NewServeMux()
@@ -41,6 +41,6 @@ func main() {
 	mux.HandleFunc("/go", staticFileHandler("go.html"))
 
 	log.Printf("server is listening at %s", addr)
-	var err = http.ListenAndServe(addr, mux)
+	var err = http.ListenAndServe(strings.Join([]string{":", addr}, ""), mux)
 	log.Fatal(err)
 }
